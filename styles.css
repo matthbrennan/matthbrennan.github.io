@@ -48,7 +48,7 @@
     background-repeat: repeat-x;
     background-size: contain; /* Adjust to your needs */
     image-rendering: crisp-edges;
-    animation: scroll-background 12s linear infinite;
+    animation: scroll-background 13s linear infinite;
     z-index: 3; /* Above background */
     filter: drop-shadow(0px 0px 10px #7db7d1);
 }
@@ -78,7 +78,7 @@
     background-repeat: repeat-x;
     background-size: contain; /* Adjust to your needs */
     image-rendering: crisp-edges;
-    animation: scroll-background 5s linear infinite;
+    animation: scroll-background 7s linear infinite;
     z-index: 5; /* Above background */
 }
 
@@ -207,8 +207,8 @@ body {
 }
 
 @keyframes drop-in {
-	0% { transform: translate(0px, -50px); opacity: 0; }
-    100% { transform: translate(0px, 0); opacity: 1; }
+	0% { transform: translateX(0); }
+    100% { transform: translateX(-50); }
 }
 
 @keyframes scroll-background {

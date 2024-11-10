@@ -1,0 +1,220 @@
+:root {
+    --background-color: rgba(16, 26, 41, 0.9); /* Overlay to blend with dark background */
+    --text-color: #E0E8F9; /* Light gray text */
+    --accent-primary: #8EC0E4; /* Light blue glow */
+    --accent-secondary: #4B79A1; /* Soft dark blue */
+    --hover-background: rgba(142, 192, 228, 0.8); /* Light blue hover */
+    --button-bg: rgba(25, 40, 60, 0.8); /* Deeper background for buttons */
+    --shadow-color: rgba(142, 192, 228, 0.5); /* Light blue shadow */
+}
+
+/* Background layer */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh;
+    background-image: url('./Background/Backdrop.png');
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    image-rendering: crisp-edges;
+    animation: scroll-background 20s linear infinite;
+    z-index: 1; 
+}
+
+.bg-event {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    background-image: url('./Background/'); /* Change this per event */
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    image-rendering: crisp-edges;
+    animation: scroll-background 15s linear infinite;
+    z-index: 2; /* Background layer */
+}
+
+/* Buildings layer (optional) */
+.far-buildings {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./Buildings/FarBuildings.png'); /* Add your buildings if separate */
+    background-repeat: repeat-x;
+    background-size: contain; /* Adjust to your needs */
+    image-rendering: crisp-edges;
+    animation: scroll-background 12s linear infinite;
+    z-index: 3; /* Above background */
+    filter: drop-shadow(0px 0px 10px #7db7d1);
+}
+
+/* Buildings layer (optional) */
+.buildings {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./Buildings/Buildings.png'); /* Add your buildings if separate */
+    background-repeat: repeat-x;
+    background-size: contain; /* Adjust to your needs */
+    image-rendering: crisp-edges;
+    animation: scroll-background 10s linear infinite;
+    z-index: 4; /* Above background */
+}
+
+.foreground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./Foreground/Trees.png'); /* Add your buildings if separate */
+    background-repeat: repeat-x;
+    background-size: contain; /* Adjust to your needs */
+    image-rendering: crisp-edges;
+    animation: scroll-background 5s linear infinite;
+    z-index: 5; /* Above background */
+}
+
+.fg-event {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./Foreground/'); /* Add your buildings if separate */
+    background-repeat: repeat-x;
+    background-size: contain; /* Adjust to your needs */
+    image-rendering: crisp-edges;
+    animation: scroll-background 5s linear infinite;
+    z-index: 6; /* Above background */
+}
+
+/*pulsate 1s infinite alternate ease-in-out*/
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'DejaVu Sans Mono', monospace;
+    background: url('your-cityscape-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-color);
+    animation: scroll-background 30s linear infinite;
+}
+
+.container {
+    width: 80%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    border: 2px solid var(--accent-primary);
+    box-shadow: 0 0 20px 5px var(--shadow-color);
+    z-index: 7;
+    animation: fade-in 1.5s ease;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.browse-label {
+    color: var(--accent-primary);
+    font-size: clamp(1.5rem, 2vw, 2.5rem);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--accent-primary), 0 0 10px var(--accent-primary);
+    animation: pulsate 2s infinite alternate;
+}
+
+.title {
+    color: var(--text-color);
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--accent-secondary), 0 0 15px var(--accent-secondary);
+    animation: drop-in 1s ease-out;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    gap: 10px;
+    padding: 20px;
+}
+
+.main-button {
+    background: var(--button-bg);
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 4rem);
+    font-weight: bold;
+    color: var(--accent-primary);
+    text-shadow: 0 0 5px var(--accent-primary), 0 0 10px var(--accent-primary);
+    border: 2px solid var(--accent-primary);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    animation: fade-in 2s ease;
+}
+
+.main-button:hover {
+    background: var(--hover-background);
+    color: #121212;
+    text-shadow: none;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 5px var(--hover-background);
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    color: var(--text-color);
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Animations */  
+@keyframes pulsate {
+    0% { text-shadow: 0 0 5px var(--accent-primary), 0 0 15px var(--accent-primary); }
+    100% { text-shadow: 0 0 15px var(--accent-primary), 0 0 25px var(--accent-primary); }
+}
+
+@keyframes drop-in {
+	0% { transform: translate(0px, -50px); opacity: 0; }
+    100% { transform: translate(0px, 0); opacity: 1; }
+}
+
+@keyframes scroll-background {
+    0% { background-position: 0 0; }  
+    100% { background-position: -100% 0; }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
